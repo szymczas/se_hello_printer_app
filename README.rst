@@ -8,9 +8,7 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
 
   ::
 
-    # centos, add to ~/.bashrc
-    $ source /usr/bin/virtualenvwrapper.sh
-    
+   
     # ubuntu, add to ~/.bashrc
     $ source /usr/local/bin/virtualenvwrapper.sh
 
@@ -80,7 +78,7 @@ Centos
   ::
 
     $ yum install -y python-pip
-    $ pip install -U pip
+    $ pip install -U pip python main.py
     $ pip install virtualenv
     $ pip install virtualenvwrapper
   
@@ -95,7 +93,7 @@ Centos
         docker-engine
 
     $ yum install -y yum-utils
-
+ python main.py
     $ yum-config-manager \
       --add-repo \
       https://download.docker.com/linux/centos/docker-ce.repo
