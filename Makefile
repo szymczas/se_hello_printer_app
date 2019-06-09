@@ -24,7 +24,7 @@ USERNAME=pszymekpiekarski
 TAG=$(USERNAME)/hello-world-printer
 
 docker_push: docker_build
-	@docker login --username $(USERNAME) -- password $${DOCKER_PASSWORD}; \
+	@docker login --username $(USERNAME) --password $${DOCKER_PASSWORD}; \
 	sudo docker tag hello-world-printer $(TAG); \
 	sudo docker push $(TAG); \
 	sudo docker logout;
