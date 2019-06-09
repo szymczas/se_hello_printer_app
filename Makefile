@@ -13,7 +13,7 @@ test:
 run:
 		python main.py
 docker_build:
-	sudo docker build -t hello_world_printer .
+	sudo docker build -t hello-world-printer .
 
 docker_run: docker_build
 	sudo docker run \
@@ -22,10 +22,10 @@ docker_run: docker_build
   	-d hello-world-printer
 
 USERNAME=szymczas
-TAG=$(USERNAME)/hello-world-hello_world_printer
+TAG=$(USERNAME)/hello-world-printer
 
 docker_push: docker_build
-	@docker login --username $(USERNAME) --password $${szymczas}; \
+	@docker login --username $(USERNAME) --password $${DOCKER_PASSWORD}; \
 	sudo docker tag hello-world-printer $(TAG); \
 	sudo docker push $(TAG); \
 	sudo docker logout;
