@@ -14,3 +14,9 @@ run:
 		python main.py
 docker_build:
 	sudo docker build -t hello_world_printer .
+
+docker_run: docker_build
+	sudo docker run \
+		--name hello-world-printer-dev \
+	  -p 5000:5000 \
+  	-d hello-world-printer
