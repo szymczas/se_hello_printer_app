@@ -25,7 +25,7 @@ USERNAME=szymczas
 TAG=$(szymczas)/hello-world-hello_world_printer
 
 docker_push: docker_build
-	@docker login --username $(szymczas) --password $${szymczas}; \
+	@docker login --username $(USERNAME) --password $${szymczas}; \
 	sudo docker tag hello-world-printer $(TAG); \
 	sudo docker push $(TAG); \
 	sudo docker logout;
