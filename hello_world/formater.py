@@ -1,8 +1,8 @@
 import json
 
-from xml.etree import ElementTree
-from xml.etree.ElementTree import Element
-from xml.etree.ElementTree import SubElement
+# bfrom xml.etree import ElementTree
+# from xml.etree.ElementTree import Element
+# from xml.etree.ElementTree import SubElement
 
 
 PLAIN = "plain"
@@ -38,8 +38,10 @@ def format_to_json(msg, imie):
     json_data = json.dumps(data)
     return json_data
 
+
 def format_to_xml(msg, imie):
-    return ("<greetings> <name>" + imie + "</name> <msg>" + msg + "</msg> </greetings>")
+    return ("<greetings> <name>"+imie+"</name><msg>"+msg+"</msg></greetings>")
+
 
 def plain_text(msg, imie):
     return imie + ' ' + msg
