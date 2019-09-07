@@ -13,4 +13,4 @@ script:
 deploy:
   provider:  heroku
   app:  afternoon-dawn-07145
-  api:  ${HEROKU_API_KEY}
+  api_key:  ${HEROKU_API_KEY}
