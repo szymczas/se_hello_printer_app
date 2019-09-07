@@ -11,6 +11,6 @@ script:
   - make docker_build
   - make docker_push
 deploy:
-  provider: heroku
-  app: afternoon-dawn-07145
-  api: ${HEROKU_API_KEY}
+  provider:  heroku
+  app:  afternoon-dawn-07145
+  api:  ${HEROKU_API_KEY}
