@@ -28,3 +28,9 @@ docker_push: docker_build
 	sudo docker tag hello-world-printer $(TAG); \
 	sudo docker push $(TAG); \
 	sudo docker logout;
+
+test_cov:
+	PYTHONPATH=. py.test --verbose -s --cov=.
+
+test_xunit:
+	PYTHONPATH=. py.test -s --cov=. --cov-report xml --junit-xml=test_results.xml
