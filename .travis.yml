@@ -10,3 +10,10 @@ script:
   - make test
   - make docker_build
   - make docker_push
+<<<<<<< HEAD
+=======
+deploy:
+  provider:  heroku
+  app:  afternoon-dawn-07145
+  api_key:  ${HEROKU_API_KEY}
+>>>>>>> pszymek_master

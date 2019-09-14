@@ -1,27 +1,26 @@
-.PHONY: test
 deps:
-		pip install -r requirements.txt; \
-		pip install -r test_requirements.txt
+	pip install -r requirements.txt; \
+	pip install -r test_requirements.txt
 
 lint:
-		flake8 hello_world test
+	flake8 hello_world test
 
-
+.PHONY: test
 test:
 	PYTHONPATH=. py.test
 
 run:
-		python main.py
+	python main.py
 docker_build:
 	sudo docker build -t hello-world-printer .
 
 docker_run: docker_build
 	sudo docker run \
-		--name hello-world-printer-dev \
-	  -p 5000:5000 \
-  	-d hello-world-printer
+	 	--name hello-world-printer-dev \
+		-p 5000:5000 \
+		-d hello-world-printer
 
-USERNAME=szymczas
+USERNAME=pszymekpiekarski
 TAG=$(USERNAME)/hello-world-printer
 
 docker_push: docker_build
@@ -29,3 +28,9 @@ docker_push: docker_build
 	sudo docker tag hello-world-printer $(TAG); \
 	sudo docker push $(TAG); \
 	sudo docker logout;
+
+test_cov:
+	PYTHONPATH=. py.test --verbose -s --cov=.
+
+test_xunit:
+	PYTHONPATH=. py.test -s --cov=. --cov-report xml --junit-xml=test_results.xml
